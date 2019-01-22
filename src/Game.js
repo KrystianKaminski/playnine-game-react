@@ -5,6 +5,7 @@ import Answer from './Answer';
 import Numbers from './Numbers';
 
 import { Container, Row, Col } from 'reactstrap'
+import './styles.css'
 
 class Game extends React.Component {
     render() {
@@ -22,6 +23,7 @@ class Game extends React.Component {
                         <Answer />
                     </Col>
                 </Row>
+                <br />
                 <Numbers />
 
             </Container>
