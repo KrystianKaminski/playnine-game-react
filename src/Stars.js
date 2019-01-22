@@ -7,13 +7,22 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faStar)
 
-const Stars = (props) => (
-    <div>
-        <FontAwesomeIcon icon="star" />
-        <FontAwesomeIcon icon="star" />
-        <FontAwesomeIcon icon="star" />
-        <FontAwesomeIcon icon="star" />
-    </div>
-)
+const Stars = (props) => {
+
+    const numberOfStars = 1 + Math.floor(Math.random() * 9)
+
+    let stars = []
+    for (let i = 0; i < numberOfStars; i++) {
+        stars.push(<FontAwesomeIcon key={i} icon="star" />)
+    }
+
+    return (
+
+        <div>
+            {stars}
+        </div>
+    )
+}
+
 
 export default Stars
