@@ -1,21 +1,20 @@
 import React from 'react'
 
 import { Card } from 'reactstrap'
+import { Range } from 'react-lodash'
 
-const Numbers = (props) => (
-    <Card className="text-center">
-        <div>
-            <span className="selected">1</span>
-            <span className="used">2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-            <span>6</span>
-            <span>7</span>
-            <span>8</span>
-            <span>9</span>
-        </div>
-    </Card>
-)
+const Numbers = (props) => {
+
+    const arrayOfNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    return (
+        <Card className="text-center">
+            <div>
+                {arrayOfNumbers.map((number, i) =>
+                    <span key={i}>{number}</span>)}
+            </div>
+        </Card>
+    )
+}
+
 
 export default Numbers
