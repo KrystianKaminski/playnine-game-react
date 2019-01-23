@@ -8,6 +8,11 @@ import { Container, Row, Col } from 'reactstrap'
 import './styles.css'
 
 class Game extends React.Component {
+
+    state = {
+        selectedNumbers: [2, 4]
+    }
+
     render() {
         return (
             <Container>
@@ -20,11 +25,15 @@ class Game extends React.Component {
                         <Button />
                     </Col>
                     <Col xs="5">
-                        <Answer />
+                        <Answer
+                            selectedNumbers={this.state.selectedNumbers}
+                        />
                     </Col>
                 </Row>
                 <br />
-                <Numbers />
+                <Numbers
+                    selectedNumbers={this.state.selectedNumbers}
+                />
 
             </Container>
         )

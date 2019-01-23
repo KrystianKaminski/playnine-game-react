@@ -1,11 +1,15 @@
 import React from 'react'
 
 
-const Answer = (props) => (
-    <div>
-        <span>5</span>
-        <span>6</span>
-    </div>
-)
+const Answer = (props) => {
+    return (
+        <div>
+            {props.selectedNumbers.map((number, i) =>
+                <span key={i}>{number}</span>
+            )}
+        </div>
+    )
+}
+
 
 export default Answer
