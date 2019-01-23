@@ -1,6 +1,6 @@
 import React from 'react'
 import Stars from './Stars';
-import Button from './Button';
+import Btn from './Button';
 import Answer from './Answer';
 import Numbers from './Numbers';
 
@@ -28,28 +28,31 @@ class Game extends React.Component {
     }
 
     render() {
+        const { selectedNumbers, randomNumberOfStars } = this.state
         return (
             <Container>
                 <h3>Play Nine</h3>
                 <Row>
                     <Col xs="5">
                         <Stars
-                            numberOfStars={this.state.randomNumberOfStars}
+                            numberOfStars={randomNumberOfStars}
                         />
                     </Col>
                     <Col xs="2">
-                        <Button />
+                        <Btn
+                            selectedNumbers={selectedNumbers}
+                        />
                     </Col>
                     <Col xs="5">
                         <Answer
-                            selectedNumbers={this.state.selectedNumbers}
+                            selectedNumbers={selectedNumbers}
                             unselectNumber={this.unselectNumber}
                         />
                     </Col>
                 </Row>
                 <br />
                 <Numbers
-                    selectedNumbers={this.state.selectedNumbers}
+                    selectedNumbers={selectedNumbers}
                     selectNumber={this.selectNumber}
                 />
 
