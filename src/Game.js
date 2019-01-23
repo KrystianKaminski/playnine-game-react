@@ -11,7 +11,8 @@ class Game extends React.Component {
 
     state = {
         selectedNumbers: [],
-        randomNumberOfStars: 1 + Math.floor(Math.random() * 9)
+        randomNumberOfStars: 1 + Math.floor(Math.random() * 9),
+        answerIsCorrect: null
     }
 
     selectNumber = (clickedNumber) => {
@@ -24,6 +25,12 @@ class Game extends React.Component {
     unselectNumber = (clickedNumber) => {
         this.setState(prevState => ({
             selectedNumbers: prevState.selectedNumbers.filter(number => number !== clickedNumber)
+        }))
+    }
+
+    checkAnswer = () => {
+        this.setState(prevState => ({
+            answerIsCorrect: prevState.randomNumberOfStars === prevState.selectedNumbers.reduce((acc, n) => acc + n, 0)
         }))
     }
 
