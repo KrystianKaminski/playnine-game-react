@@ -3,10 +3,11 @@ import React from 'react'
 import { Button } from 'reactstrap'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faTimes, faAsterisk } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faCheck)
 library.add(faTimes)
+library.add(faAsterisk)
 
 const Btn = (props) => {
 
@@ -34,7 +35,7 @@ const Btn = (props) => {
                 color="info"
                 onClick={props.checkAnswer}
             >
-                =
+                <FontAwesomeIcon icon="check" />
             </Button>
             break;
     }
@@ -42,6 +43,13 @@ const Btn = (props) => {
     return (
         <div>
             {button}
+            <br /><br />
+            <Button
+                color="warning"
+                onClick={props.redraw}
+            >
+                <FontAwesomeIcon icon="asterisk" />
+            </Button>
         </div>
     )
 }

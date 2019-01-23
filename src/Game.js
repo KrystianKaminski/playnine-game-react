@@ -46,6 +46,14 @@ class Game extends React.Component {
         }))
     }
 
+    redraw = () => {
+        this.setState({
+            randomNumberOfStars: 1 + Math.floor(Math.random() * 9),
+            answerIsCorrect: null,
+            selectedNumbers: [],
+        })
+    }
+
     render() {
         const { selectedNumbers, randomNumberOfStars, answerIsCorrect, usedNumbers } = this.state
         return (
@@ -63,6 +71,7 @@ class Game extends React.Component {
                             checkAnswer={this.checkAnswer}
                             answerIsCorrect={answerIsCorrect}
                             acceptAnswer={this.acceptAnswer}
+                            redraw={this.redraw}
                         />
                     </Col>
                     <Col xs="5">
