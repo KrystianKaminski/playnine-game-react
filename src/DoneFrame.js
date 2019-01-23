@@ -11,6 +11,11 @@ const DoneFrame = (props) => {
             }}
         >
             <h2>{props.doneStatus}</h2>
+            <button
+                onClick={props.resetGame}
+            >
+                Play again
+                </button>
         </Card>
     )
 }
