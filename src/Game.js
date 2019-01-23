@@ -35,7 +35,7 @@ class Game extends React.Component {
     }
 
     render() {
-        const { selectedNumbers, randomNumberOfStars } = this.state
+        const { selectedNumbers, randomNumberOfStars, answerIsCorrect } = this.state
         return (
             <Container>
                 <h3>Play Nine</h3>
@@ -48,6 +48,8 @@ class Game extends React.Component {
                     <Col xs="2">
                         <Btn
                             selectedNumbers={selectedNumbers}
+                            checkAnswer={this.checkAnswer}
+                            answerIsCorrect={answerIsCorrect}
                         />
                     </Col>
                     <Col xs="5">
