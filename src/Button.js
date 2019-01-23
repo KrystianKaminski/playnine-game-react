@@ -47,8 +47,9 @@ const Btn = (props) => {
             <Button
                 color="warning"
                 onClick={props.redraw}
+                disabled={props.redraws === 0}
             >
-                <FontAwesomeIcon icon="asterisk" />
+                <FontAwesomeIcon icon="asterisk" /> {props.redraws}
             </Button>
         </div>
     )
