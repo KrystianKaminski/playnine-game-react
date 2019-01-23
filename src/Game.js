@@ -10,7 +10,15 @@ import './styles.css'
 class Game extends React.Component {
 
     state = {
-        selectedNumbers: [2, 4]
+        selectedNumbers: [],
+        randomNumberOfStars: 1 + Math.floor(Math.random() * 9)
+    }
+
+    selectNumber = (clickedNumber) => {
+        if (this.state.selectedNumbers.indexOf(clickedNumber) >= 0) return
+        this.setState(prevState => ({
+            selectedNumbers: prevState.selectedNumbers.concat(clickedNumber)
+        }))
     }
 
     render() {
@@ -19,7 +27,9 @@ class Game extends React.Component {
                 <h3>Play Nine</h3>
                 <Row>
                     <Col xs="5">
-                        <Stars />
+                        <Stars
+                            numberOfStars={this.state.randomNumberOfStars}
+                        />
                     </Col>
                     <Col xs="2">
                         <Button />
@@ -33,6 +43,7 @@ class Game extends React.Component {
                 <br />
                 <Numbers
                     selectedNumbers={this.state.selectedNumbers}
+                    selectNumber={this.selectNumber}
                 />
 
             </Container>
