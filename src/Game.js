@@ -21,6 +21,12 @@ class Game extends React.Component {
         }))
     }
 
+    unselectNumber = (clickedNumber) => {
+        this.setState(prevState => ({
+            selectedNumbers: prevState.selectedNumbers.filter(number => number !== clickedNumber)
+        }))
+    }
+
     render() {
         return (
             <Container>
@@ -37,6 +43,7 @@ class Game extends React.Component {
                     <Col xs="5">
                         <Answer
                             selectedNumbers={this.state.selectedNumbers}
+                            unselectNumber={this.unselectNumber}
                         />
                     </Col>
                 </Row>
