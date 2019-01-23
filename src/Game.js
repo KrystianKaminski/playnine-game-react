@@ -12,6 +12,7 @@ class Game extends React.Component {
     state = {
         selectedNumbers: [],
         randomNumberOfStars: 1 + Math.floor(Math.random() * 9),
+        usedNumbers: [],
         answerIsCorrect: null
     }
 
@@ -36,8 +37,17 @@ class Game extends React.Component {
         }))
     }
 
+    acceptAnswer = () => {
+        this.setState(prevState => ({
+            usedNumbers: prevState.usedNumbers.concat(prevState.selectedNumbers),
+            selectedNumbers: [],
+            answerIsCorrect: null,
+            randomNumberOfStars: 1 + Math.floor(Math.random() * 9)
+        }))
+    }
+
     render() {
-        const { selectedNumbers, randomNumberOfStars, answerIsCorrect } = this.state
+        const { selectedNumbers, randomNumberOfStars, answerIsCorrect, usedNumbers } = this.state
         return (
             <Container>
                 <h3>Play Nine</h3>
@@ -52,6 +62,7 @@ class Game extends React.Component {
                             selectedNumbers={selectedNumbers}
                             checkAnswer={this.checkAnswer}
                             answerIsCorrect={answerIsCorrect}
+                            acceptAnswer={this.acceptAnswer}
                         />
                     </Col>
                     <Col xs="5">
@@ -65,6 +76,7 @@ class Game extends React.Component {
                 <Numbers
                     selectedNumbers={selectedNumbers}
                     selectNumber={this.selectNumber}
+                    usedNumbers={usedNumbers}
                 />
 
             </Container>

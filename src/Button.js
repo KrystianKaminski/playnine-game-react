@@ -16,6 +16,7 @@ const Btn = (props) => {
         case true:
             button = <Button
                 color="success"
+                onClick={props.acceptAnswer}
             >
                 <FontAwesomeIcon icon="check" />
             </Button>
