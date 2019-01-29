@@ -6,7 +6,7 @@ import Numbers from './Numbers';
 import DoneFrame from './DoneFrame'
 
 import { Container, Row, Col } from 'reactstrap'
-import './styles.css'
+import '../css/styles.css'
 
 var possibleCombinationSum = function (arr, n) {
     if (arr.indexOf(n) >= 0) { return true; }
